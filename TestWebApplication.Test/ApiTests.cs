@@ -2,10 +2,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using NUnit.Allure.Core;
 using NUnit.Framework;
 
 namespace TestWebApplication
 {
+    [AllureNUnit]
     public class ApiTests
     {
         private TestServer _testServer;
