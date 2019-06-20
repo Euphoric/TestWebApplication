@@ -1,0 +1,20 @@
+version: "1.0"
+stages:
+  - "clone"
+  - "build"
+  - "integration"
+  - "push"
+steps:
+  main_clone:
+    type: "git-clone"
+    description: "Cloning main repository..."
+    repo: "Euphoric/TestWebApplication"
+    revision: "${{CF_BRANCH}}"
+    stage: "clone"
+  build:
+    title: "Building Docker Image"
+    type: "build"
+    image_name: "Euphoric/TestWebApplication"
+    tag: "${{CF_BRANCH_TAG_NORMALIZED}}"
+    dockerfile: "TestWebApplication/Dockerfile"
+    stage: "build"
